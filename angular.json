@@ -3,5 +3,41 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "@doroteati/dorotea-core": {
+      "projectType": "library",
+      "root": "projects/doroteati/dorotea-core",
+      "sourceRoot": "projects/doroteati/dorotea-core/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/doroteati/dorotea-core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/doroteati/dorotea-core/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/doroteati/dorotea-core/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/doroteati/dorotea-core/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false
   }
 }
