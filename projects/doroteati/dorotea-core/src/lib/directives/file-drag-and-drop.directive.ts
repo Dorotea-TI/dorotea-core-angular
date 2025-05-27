@@ -2,6 +2,7 @@ import { Directive, EventEmitter, HostListener, Output } from '@angular/core';
 
 @Directive({
   selector: '[DoroteaFileDragAndDrop]',
+  standalone: true,
 })
 export class FileDragAndDropDirective {
   @Output() fileSelected = new EventEmitter<File>();

@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build-lib": "ng build @doroteati/dorotea-core",
+    "publish-lib": "ng build @doroteati/dorotea-core && cd dist/doroteati/dorotea-core && npm publish"
   },
   "private": true,
   "dependencies": {
