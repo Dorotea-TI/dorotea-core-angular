@@ -9,4 +9,7 @@ export class DoroteaDataResult {
   status: number = 0;
   obs?: Subject<any>;
   result?: any;
+  items?: any;
+  timestamp?: number = Date.now();
+  error?: any;
 }

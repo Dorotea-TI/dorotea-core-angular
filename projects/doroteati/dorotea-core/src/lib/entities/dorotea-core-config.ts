@@ -1,6 +1,6 @@
 import { Injectable, InjectionToken } from '@angular/core';
 
-export const MIA_CORE_PROVIDER = new InjectionToken<DoroteaCoreConfig>(
+export const DOROTEA_CORE_PROVIDER = new InjectionToken<DoroteaCoreConfig>(
   'doroteati.core'
 );
 
