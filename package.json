@@ -1,6 +1,6 @@
 {
   "name": "dorotea-core-angular",
-  "version": "0.0.0",
+  "version": "19.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "build-lib": "ng build @doroteati/dorotea-core",
-    "publish-lib": "ng build @doroteati/dorotea-core && cd dist/doroteati/dorotea-core && npm publish"
+    "publish-lib": "ng build @doroteati/dorotea-core && cd dist/doroteati/dorotea-core && npm publish --access public"
   },
   "private": true,
   "dependencies": {
