@@ -1,5 +1,9 @@
 import { InjectionToken } from '@angular/core';
-import { DoroteaStorageConfig } from '../interfaces/storage-config.interface';
 
-export const DOROTEA_GOOGLE_STORAGE_CONFIG =
-  new InjectionToken<DoroteaStorageConfig>('DOROTEA_GOOGLE_STORAGE_CONFIG');
+// Solo la interface (si no está ya en el archivo principal)
+export interface DoroteaStorageConfig {
+  bucket: string;
+  projectId?: string;
+  region?: string;
+  enableCors?: boolean;
+}

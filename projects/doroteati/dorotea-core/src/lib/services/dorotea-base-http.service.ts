@@ -4,7 +4,7 @@ import { Observable, map, catchError } from 'rxjs';
 import {
   DOROTEA_CORE_PROVIDER,
   DoroteaCoreConfig,
-} from '../entities/dorotea-core-config';
+} from '../tokens/dorotea-tokens';
 import { DoroteaResponse } from '../entities/dorotea-response';
 
 @Injectable({

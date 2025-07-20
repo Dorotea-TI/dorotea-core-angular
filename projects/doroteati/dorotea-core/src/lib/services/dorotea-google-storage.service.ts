@@ -4,10 +4,10 @@ import {
   HttpEvent,
   HttpEventType,
   HttpRequest,
-  HttpHeaders, // ✅ Import agregado
+  HttpHeaders,
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { map, catchError, tap, filter } from 'rxjs/operators'; // ✅ filter agregado
+import { map, catchError, tap, filter } from 'rxjs/operators';
 import { STORAGE_ENDPOINTS } from '../constants/storage.constants';
 import { DoroteaFile } from '../entities/dorotea-file';
 import { DoroteaResponse } from '../entities/dorotea-response';
@@ -15,7 +15,7 @@ import {
   DoroteaUploadProgress,
   DoroteaUploadOptions,
 } from '../interfaces/storage-config.interface';
-import { DOROTEA_GOOGLE_STORAGE_CONFIG } from '../tokens/storage-tokens';
+import { DOROTEA_GOOGLE_STORAGE_CONFIG } from '../tokens/dorotea-tokens';
 import { StorageUtils } from '../utils/storage.utils';
 
 @Injectable({
@@ -53,7 +53,7 @@ export class DoroteaGoogleStorageService {
 
     return this.http
       .post<any>(url, file, {
-        headers: this.buildHeaders(file, options), // ✅ Ya no da error
+        headers: this.buildHeaders(file, options),
       })
       .pipe(catchError((error) => this.handleError(error, 'uploadFile')));
   }
@@ -245,7 +245,7 @@ export class DoroteaGoogleStorageService {
         url: this.getPublicUrl(response.name),
         mediaLink: this.getPublicUrl(response.name),
         size: response.size || originalFile.size,
-        contentType: response.contentType || originalFile.type, // ✅ Ahora no da error
+        contentType: response.contentType || originalFile.type,
         etag: response.etag,
         bucket: response.bucket,
         generation: response.generation,

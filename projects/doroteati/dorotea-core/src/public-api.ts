@@ -3,6 +3,9 @@
  * Librería Angular 19 - Standalone Components
  */
 
+// ==================== TOKENS CENTRALIZADOS ====================
+export * from './lib/tokens/dorotea-tokens';
+
 // ==================== ENTITIES ====================
 export * from './lib/entities/dorotea-core-config';
 export * from './lib/entities/dorotea-data-result';
@@ -31,26 +34,17 @@ export * from './lib/directives/file-google.directive';
 export * from './lib/directives/file-drag-and-drop.directive';
 
 // ==================== VALIDATORS CON TODA SU ESTRUCTURA ====================
-// Exportar la clase principal
 export * from './lib/validators/dorotea-validators';
-
-// Exportar interfaces
 export * from './lib/validators/interfaces/validation-config.interface';
 export * from './lib/validators/interfaces/validation-errors.interface';
-
-// Exportar constantes
 export * from './lib/validators/constants/validation-messages.constants';
 export * from './lib/validators/constants/validation-regex.constants';
 export * from './lib/validators/constants/validation-defaults.constants';
-
-// Exportar servicios de validación
 export * from './lib/validators/services/password-validation.service';
 export * from './lib/validators/services/email-validation.service';
 export * from './lib/validators/services/phone-validation.service';
 export * from './lib/validators/services/general-validation.service';
 export * from './lib/validators/services/validation-message.service';
-
-// Exportar validadores específicos
 export * from './lib/validators/validators/password.validators';
 export * from './lib/validators/validators/email.validators';
 export * from './lib/validators/validators/phone.validators';
@@ -75,9 +69,6 @@ export * from './lib/types/http.types';
 // ==================== CONSTANTS ====================
 export * from './lib/constants/storage.constants';
 
-// ==================== TOKENS ====================
-export * from './lib/tokens/storage-tokens';
-
 // ==================== UTILS ====================
 export * from './lib/utils/storage.utils';
 
@@ -86,9 +77,9 @@ import { Provider } from '@angular/core';
 import {
   DOROTEA_CORE_PROVIDER,
   DoroteaCoreConfig,
-} from './lib/entities/dorotea-core-config';
-import { DOROTEA_GOOGLE_STORAGE_CONFIG } from './lib/tokens/storage-tokens';
-import { DoroteaStorageConfig } from './lib/interfaces/storage-config.interface';
+  DOROTEA_GOOGLE_STORAGE_CONFIG,
+  DoroteaGoogleStorageConfig,
+} from './lib/tokens/dorotea-tokens';
 
 /**
  * Configura Dorotea Core con los valores proporcionados
@@ -104,7 +95,7 @@ export function provideDoroteaCore(config: DoroteaCoreConfig): Provider {
  * Configura Google Storage para Dorotea
  */
 export function provideDoroteaGoogleStorage(
-  config: DoroteaStorageConfig
+  config: DoroteaGoogleStorageConfig
 ): Provider {
   return {
     provide: DOROTEA_GOOGLE_STORAGE_CONFIG,
@@ -117,7 +108,7 @@ export function provideDoroteaGoogleStorage(
  */
 export function provideDoroteaComplete(
   coreConfig: DoroteaCoreConfig,
-  storageConfig: DoroteaStorageConfig
+  storageConfig: DoroteaGoogleStorageConfig
 ): Provider[] {
   return [
     provideDoroteaCore(coreConfig),
@@ -156,32 +147,26 @@ export { FileDragAndDropDirective } from './lib/directives/file-drag-and-drop.di
 // Validators con alias legacy
 export { DoroteaValidators as MiaValidators } from './lib/validators/dorotea-validators';
 
-// Tokens con alias legacy
-export { DOROTEA_CORE_PROVIDER as MIA_CORE_PROVIDER } from './lib/entities/dorotea-core-config';
-export { DOROTEA_GOOGLE_STORAGE_CONFIG as MIA_GOOGLE_STORAGE_PROVIDER } from './lib/tokens/storage-tokens';
-
 // Providers de compatibilidad
 export function provideMiaCore(config: DoroteaCoreConfig): Provider {
   return provideDoroteaCore(config);
 }
 
 export function provideMiaGoogleStorage(
-  config: DoroteaStorageConfig
+  config: DoroteaGoogleStorageConfig
 ): Provider {
   return provideDoroteaGoogleStorage(config);
 }
 
-// Operadores RX con alias
+// Operadores RX
 export { nil, truly, defined, truthy } from './lib/rx/dorotea-operator';
 
 // ==================== HELPERS ADICIONALES ====================
-// Re-exportar helpers específicos que podrían usarse individualmente
 export { BytesHelper } from './lib/helpers/bytes.helper';
 export { StringHelper } from './lib/helpers/string.helper';
 export { StorageUtils } from './lib/utils/storage.utils';
 
 // ==================== CLASES DE CONFIGURACIÓN LEGACY ====================
-// Para mantener compatibilidad total
 export class MiaGoogleStorage {
   bucket: string = '';
 }
