@@ -1,6 +1,6 @@
 {
   "name": "@doroteati/dorotea-core",
-  "version": "20.0.1",
+  "version": "20.0.2",
   "peerDependencies": {
     "@angular/common": "^20.1.4",
     "@angular/core": "^20.1.4",
