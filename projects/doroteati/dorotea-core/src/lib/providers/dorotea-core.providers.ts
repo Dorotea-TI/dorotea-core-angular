@@ -1,10 +1,11 @@
 import { Provider } from '@angular/core';
+
+import { DoroteaCoreConfig } from '../entities/dorotea-core-config';
 import {
   DOROTEA_CORE_PROVIDER,
   DOROTEA_GOOGLE_STORAGE_CONFIG,
   DoroteaGoogleStorageConfig,
-} from '../tokens/dorotea-core.tokens';
-import { DoroteaCoreConfig } from '../entities/dorotea-core-config';
+} from '@doroteati/dorotea-core';
 
 // ==================== PROVIDERS PARA APP CONFIG ====================
 
